@@ -2,7 +2,8 @@
    <ul>
       <learning-resource
         v-for="resource in resources" 
-        :key="resource.id"  
+        :key="resource.id" 
+        :id="resource.id" 
         :title="resource.title"
         :description="resource.description"
         :link="resource.link"
@@ -16,10 +17,7 @@ export default {
     components: {
       LearningResource
     },
-    inject: ['resources'],
-    mounted(){
-      console.log('this')
-    }
+    inject: ['resources']
 }
 </script>
 

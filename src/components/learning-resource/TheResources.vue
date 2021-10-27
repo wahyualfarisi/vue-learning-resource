@@ -49,17 +49,22 @@ export default {
         },
         addResource(obj) {
             let newResource = {
-                id: new Date(),
+                id: new Date().getTime(),
                 ...obj
             }
             this.storedResources.unshift(newResource);
             this.selectedTab = 'store-resource';
+        },
+        deleteResource(id){
+            const idx = this.storedResources.findIndex(el => el.id === id);
+            this.storedResources.splice(idx, 1)
         }
     },
     provide(){
         return {
             resources: this.storedResources,
-            addResource: this.addResource
+            addResource: this.addResource,
+            deleteResource: this.deleteResource
         }
     }
 }

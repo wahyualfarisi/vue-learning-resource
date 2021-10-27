@@ -39,13 +39,13 @@ export default {
   inject: ['addResource'],
   methods: {
     submitHandler(){
-        const title = this.$refs.title.value;
-        const description = this.$refs.description.value;
-        const link = this.$refs.link.value;
+        let title = this.$refs.title.value;
+        let description = this.$refs.description.value;
+        let link = this.$refs.link.value;
 
         if(
           title.trim() === '' ||
-          description.title() === '' ||
+          description.trim() === '' ||
           link.trim() === ''
         ) {
           this.inputInValid = true
@@ -57,6 +57,7 @@ export default {
           description,
           link
         }
+        
         this.addResource(data);
     },
     confirmError(){
