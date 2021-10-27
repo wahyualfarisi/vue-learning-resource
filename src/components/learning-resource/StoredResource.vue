@@ -16,7 +16,10 @@ export default {
     components: {
       LearningResource
     },
-    props: ['resources']
+    inject: ['resources'],
+    mounted(){
+      console.log('this')
+    }
 }
 </script>
 
